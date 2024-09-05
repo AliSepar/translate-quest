@@ -15,6 +15,19 @@ class Data
             'porte' => 'door',
             'musique' => 'music',
             'biscuit' => 'cookie',
+            'arbre' => 'tree',
+            'voiture' => 'car',
+            'maison' => 'house',
+            'chat' => 'cat',
+            'chien' => 'dog',
+            'livre' => 'book',
+            'table' => 'table',
+            'chaise' => 'chair',
+            'fenetre' => 'window',
+            'sol' => 'floor',
+            'plage' => 'beach',
+            'soleil' => 'sun',
+            'fleur' => 'flower',
         ];
     }
 }

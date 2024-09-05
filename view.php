@@ -19,29 +19,42 @@
 
 		<div class="flex-1 max-w-md mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow">
 			<h4 class="mb-2 text-center text-2xl font-bold tracking-tight text-gray-900">Translate Quiz</h4>
-			<p class="mb-2 mt-2 text-md font-bold tracking-tight text-gray-900">
-				Hello: <?php if (isset($_SESSION['name'])) {
-							echo $_SESSION['name'];
-						} ?>
-			</p>
+			<div class="flex justify-around mb-2 mt-2">
+				<p class="text-md font-bold tracking-tight text-gray-900">
+					Hello: <?php if (isset($_SESSION['name'])) {
+								echo $_SESSION['name'];
+							} ?>
+				</p>
+				<p class=" text-md font-bold tracking-tight text-gray-900">
+					Score: <?php if (isset($_SESSION['score'])) {
+								echo $_SESSION['score'];
+							} ?></p>
+			</div>
 			<p class="mb-2 mt-5 text-md font-bold tracking-tight text-gray-900">
 				Word: <?php if (isset($_SESSION['word'])) {
-							echo $_SESSION['word'][0]; // French word
+							echo $_SESSION['word']; // French word
 							// echo $_SESSION['word'][1]; // English word
 						} ?></p>
 			<form class="max-w-sm mx-auto" method="post" action="">
 				<div class="mb-5">
 					<input type="text" name="input_word" id="input_word" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="your answer" required />
 				</div>
-				<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+				<div class="flex justify-around">
+					<button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
+					<a href="index.php?reset" class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Reset</a>
+				</div>
+				<?php
+				if ($_SESSION['message']) {
+					echo "<p>" . $_SESSION['message'] . "</p>";
+				}
+				?>
 				<!-- <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
 					Toggle modal
 				</button> -->
 			</form>
-
 		</div>
 
-		<?php if (session_status() === PHP_SESSION_NONE && isset($_SESSION['name']) == false) { ?>
+		<?php if (!isset($_SESSION['name']) || $_SESSION['name'] == '') { ?>
 
 			<div id="popup-modal" tabindex="-1" class="flex overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
 				<div class="relative p-4 w-full max-w-md max-h-full">
