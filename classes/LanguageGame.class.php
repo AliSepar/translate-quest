@@ -1,5 +1,5 @@
 <?php
-require_once('Player.php');
+// require_once('Player.php');
 class LanguageGame
 {
     private array $words;

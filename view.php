@@ -15,12 +15,12 @@
 <body>
 	<!-- TODO: add a form for the user to play the game -->
 
-	<div class="container-xl bg-[url('./image/bg.png')] h-screen flex items-center justify-center">
+	<div class="container-xl bg-[url('./image/bg.png')] bg-no-repeat bg-center bg-cover h-screen flex items-center justify-center">
 
-		<div class="flex-1 max-w-md mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow">
+		<div class="flex-1 max-w-md h-[400px] mx-auto p-6 bg-white border border-gray-200 rounded-lg shadow-xl">
 			<h4 class="mb-2 text-center text-2xl font-bold tracking-tight text-gray-900">Translate Quiz</h4>
-			<div class="flex justify-around mb-2 mt-2">
-				<p class="text-md font-bold tracking-tight text-gray-900">
+			<div class="flex justify-around mb-2 mt-9">
+				<p class="text-xl font-bold tracking-tight text-gray-900">
 					Hello: <?php if (isset($_SESSION['name'])) {
 								echo $_SESSION['name'];
 							} ?>
@@ -30,12 +30,12 @@
 								echo $_SESSION['score'];
 							} ?></p>
 			</div>
-			<p class="mb-2 mt-5 text-md font-bold tracking-tight text-gray-900">
+			<p class="mb-2 mt-9 text-xl font-bold tracking-tight text-gray-900 text-center capitalize ">
 				Word: <?php if (isset($_SESSION['word'])) {
 							echo $_SESSION['word']; // French word
 							// echo $_SESSION['word'][1]; // English word
 						} ?></p>
-			<form class="max-w-sm mx-auto" method="post" action="">
+			<form class="max-w-sm mx-auto mt-5" method="post" action="">
 				<div class="mb-5">
 					<input type="text" name="input_word" id="input_word" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="your answer" required />
 				</div>
